@@ -1,0 +1,9 @@
+{
+  "name": "mima-xp-gateway",
+  "version": "1.0.0",
+  "description": "Gateway Discord per tracking XP messaggi — chiama xp_hook.php su fucinamenabo.com",
+  "main": "gateway_xp.js",
+  "scripts": { "start": "node gateway_xp.js" },
+  "dependencies": { "ws": "^8.18.0" },
+  "engines": { "node": ">=18" }
+}
