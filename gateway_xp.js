@@ -75,8 +75,12 @@ function onMessage(msg) {
       'x-xp-secret': SECRET,
       'Content-Length': Buffer.byteLength(body),
     },
+  }, res => {
+    let data = '';
+    res.on('data', chunk => data += chunk);
+    res.on('end', () => console.log(`[XP] user=${msg.author.id} status=${res.statusCode} body=${data.trim()}`));
   });
-  req.on('error', () => {});
+  req.on('error', err => console.error('[XP] request error:', err.message));
   req.write(body);
   req.end();
 }
